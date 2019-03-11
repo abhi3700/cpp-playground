@@ -16,3 +16,6 @@
 [submodule "gitcpplibs/boost-py-eg"]
 	path = gitcpplibs/boost-py-eg
 	url = https://github.com/TNG/boost-python-examples.git
+[submodule "gitcpplibs/cpp-patterns-wj"]
+	path = gitcpplibs/cpp-patterns-wj
+	url = https://github.com/wj-zhu/cpp-patterns.git

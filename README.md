@@ -32,5 +32,9 @@ Practice C++ coding with other github repos
     + update: `cd leet-code` >> `git pull`
   - [boost-py-eg](https://github.com/TNG/boost-python-examples) - 'git'
     + create: `git submodule add https://github.com/TNG/boost-python-examples.git boost-py-eg`
-    + update: `cd boost-py-eg` >> `git pull` (inside the folder)
+    + update: `cd boost-py-eg` >> `git pull`
+  - [cpp-patterns-wj](https://github.com/wj-zhu/cpp-patterns) - `git`
+    + create: `git submodule add https://github.com/wj-zhu/cpp-patterns.git cpp-patterns-wj`
+    + update: `cd cpp-patterns-wj` >> `git pull`
+
 
