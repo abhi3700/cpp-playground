@@ -143,3 +143,17 @@ else
 	git submodule add https://github.com/wj-zhu/cpp-patterns.git cpp-patterns-wj
 	cd ..
 fi
+# -----------------------------------------------------------------
+# gitcpplibs/cpp-wj
+if [[ -d "gitcpplibs/cpp-wj" ]]; then
+	# echo "cpp-wj folder exist"
+	cd ./gitcpplibs/cpp-wj
+	svn update
+	cd ..
+	cd ..
+else
+	# echo "cpp-patterns-wj folder NOT exist"
+	cd ./gitcpplibs
+	svn checkout https://github.com/wj-zhu/snippets/trunk/cpp cpp-wj
+	cd ..
+fi

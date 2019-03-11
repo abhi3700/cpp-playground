@@ -36,5 +36,7 @@ Practice C++ coding with other github repos
   - [cpp-patterns-wj](https://github.com/wj-zhu/cpp-patterns) - `git`
     + create: `git submodule add https://github.com/wj-zhu/cpp-patterns.git cpp-patterns-wj`
     + update: `cd cpp-patterns-wj` >> `git pull`
-
+  - [cpp-wj](https://github.com/wj-zhu/snippets/tree/master/cpp) - `svn`
+    + create: `svn checkout https://github.com/wj-zhu/snippets/trunk/cpp cpp-wj`
+    + update: `cd cpp-wj` >> `svn update`
 
