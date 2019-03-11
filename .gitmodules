@@ -1,0 +1,12 @@
+[submodule "boost"]
+	path = boost
+	url = https://github.com/abhi3700/boost.git
+[submodule "gitcpplibs/denismatveev_exercises"]
+	path = gitcpplibs/denismatveev_exercises
+	url = https://github.com/denismatveev/exercises.git
+[submodule "gitcpplibs/sagar-cpp"]
+	path = gitcpplibs/sagar-cpp
+	url = https://github.com/Sagar-022/c_plus_plus.git
+[submodule "gitcpplibs/cpp-primer"]
+	path = gitcpplibs/cpp-primer
+	url = https://github.com/Mooophy/Cpp-Primer.git
