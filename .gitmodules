@@ -16,6 +16,3 @@
 [submodule "gitcpplibs/boost-py-eg"]
 	path = gitcpplibs/boost-py-eg
 	url = https://github.com/TNG/boost-python-examples.git
-[submodule "include/spdlog"]
-	path = include/spdlog
-	url = https://github.com/gabime/spdlog.git
