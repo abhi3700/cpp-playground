@@ -7,3 +7,15 @@
 [submodule "gitcpplibs/cpp-primer"]
 	path = gitcpplibs/cpp-primer
 	url = https://github.com/Mooophy/Cpp-Primer.git
+[submodule "include/boost"]
+	path = include/boost
+	url = https://github.com/abhi3700/boost
+[submodule "gitcpplibs/leet-code"]
+	path = gitcpplibs/leet-code
+	url = https://github.com/wj-zhu/leet-code.git
+[submodule "gitcpplibs/boost-py-eg"]
+	path = gitcpplibs/boost-py-eg
+	url = https://github.com/TNG/boost-python-examples.git
+[submodule "include/spdlog"]
+	path = include/spdlog
+	url = https://github.com/gabime/spdlog.git
