@@ -16,10 +16,10 @@ Practice C++ coding with other github repos
 
 * C++ Github repositories (References)- `gitcpplibs`
 	- [exercism](https://github.com/exercism/cpp)	- `svn`
-		+ create: `svn checkout https://github.com/exercism/cpp/trunk/exercises`
-		+ update: `cd exercism` >> `svn update` (inside the folder)
+		+ create: `svn checkout https://github.com/exercism/cpp/trunk/exercises exercism-exercises`
+		+ update: `cd exercism-exercises` >> `svn update` (inside the folder)
 	- [denismatveev-exercises](https://github.com/denismatveev/exercises) - `git`
-		+ create: `git submodule add https://github.com/denismatveev/exercises.git denismatveev_exercises`
+		+ create: `git submodule add https://github.com/denismatveev/exercises.git denismatveev-exercises`
 		+ update: `cd denismatveev-exercises` >> `git pull`
 	- [sagar-cpp](https://github.com/Sagar-022/c_plus_plus) - `git`
 		+ create: `git submodule add https://github.com/Sagar-022/c_plus_plus sagar-cpp`

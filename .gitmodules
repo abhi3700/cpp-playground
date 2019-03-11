@@ -1,6 +1,3 @@
-[submodule "gitcpplibs/denismatveev_exercises"]
-	path = gitcpplibs/denismatveev_exercises
-	url = https://github.com/denismatveev/exercises.git
 [submodule "gitcpplibs/sagar-cpp"]
 	path = gitcpplibs/sagar-cpp
 	url = https://github.com/Sagar-022/c_plus_plus.git
@@ -19,3 +16,6 @@
 [submodule "gitcpplibs/cpp-patterns-wj"]
 	path = gitcpplibs/cpp-patterns-wj
 	url = https://github.com/wj-zhu/cpp-patterns.git
+[submodule "gitcpplibs/denismatveev-exercises"]
+	path = gitcpplibs/denismatveev-exercises
+	url = https://github.com/denismatveev/exercises.git
