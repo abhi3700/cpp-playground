@@ -1,6 +1,3 @@
-[submodule "boost"]
-	path = boost
-	url = https://github.com/abhi3700/boost.git
 [submodule "gitcpplibs/denismatveev_exercises"]
 	path = gitcpplibs/denismatveev_exercises
 	url = https://github.com/denismatveev/exercises.git
