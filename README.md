@@ -40,3 +40,7 @@ Practice C++ coding with other github repos
     + create: `svn checkout https://github.com/wj-zhu/snippets/trunk/cpp cpp-wj`
     + update: `cd cpp-wj` >> `svn update`
 
+## Use
+For using it in your local PC, follow the steps below:
+* Clone the repo - `git clone https://github.com/abhi3700/cpp-playground.git`
+* Update the blank submodule - `git submodule update`
