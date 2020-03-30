@@ -17,6 +17,14 @@ Practice C++ coding with other github repos
 
 > Note: For c++ you should use g++.
 
+* OS
+	- Linux (Ubuntu)
+		+ Install using `sudo apt install g++`
+		+ Test using `g++ hello.cpp` --> creates `a.out` file in this directory. <br/>
+			Also, using `g++ hello.cpp -o hello` --> creates `hello` file in this directory.
+	- Windows
+	 
+
 ### CMake
 
 
