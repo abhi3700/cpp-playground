@@ -1,6 +1,25 @@
 # cpp-playground
 Practice C++ coding with other github repos
 
+## Installation
+## GCC: GNU Compiler Collection
+* gcc vs g++ differences
+	- define
+```
+  gcc: GNU C Compiler
+  g++: GNU C++ Compiler
+```
+	- gcc will compile: *.c/*.cpp files as C and C++ respectively.
+	- g++ will compile: *.c/*.cpp files but they will all be treated as C++ files.
+	- Also if you use g++ to link the object files it automatically links in the std C++ libraries (gcc does not do this).
+	- gcc compiling C files has fewer predefined macros.
+	- gcc compiling *.cpp and g++ compiling *.c/*.cpp files has a few extra macros.
+
+> Note: For c++ you should use g++.
+
+### CMake
+
+
 ## Dependencies
 * C++ Include libs - `include`
   - Boost - [My repo in Github](https://github.com/abhi3700/boost) - `git`
