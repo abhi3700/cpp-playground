@@ -1,30 +1,55 @@
 #include <iostream>
-#include <stdio.h>
 
-#define PI 3.1416f
 
-struct person
+using std::cin;
+using std::string;
+
+
+class chef
 {
-	int age;
-	std::string name;
+public:
+	void make_chicken() {
+		std::cout << "The chef makes yummy chicken" << std::endl;
+	}
+
+	void make_salad() {
+		std::cout << "The chef makes salad" << std::endl;
+	}
+
+	void make_specialdish() {
+		std::cout << "The chef makes bbg ribs" << std::endl;
+	}
 };
 
+
+class italian_chef : public chef
+{
+public:
+	// italian_chef();
+	// ~italian_chef();
+
+	void make_specialdish() {
+		std::cout << "The chef makes chicken parm" << std::endl;
+	}
+
+	void make_pasta() {
+		std::cout << "The chef makes pasta" << std::endl;
+	}
+	 
+};
+
+
 int main() {
-	const char* str = "C";
-	std::string strcpp = "C++";
-	// scanf("Enter the string, %s", str);
-	printf("print the string, %s\n", str);
-	std::cout << strcpp <<std::endl;
-	std::cout << "Hello world" <<std::endl;
-    printf("Hello world\n");
+	chef c;
+	c.make_chicken();
+	c.make_specialdish();
 
-    person p;
-    p.age = 19;
-    p.name = "abhfjbd";
+	italian_chef ic;
+	ic.make_pasta();
+	ic.make_specialdish();
 
-    std::cout << p.name << std::endl;
 
-    return 0;
+
+	return 0;
 }
-
 
