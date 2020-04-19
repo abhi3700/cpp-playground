@@ -18,6 +18,6 @@ int main() {
 
 	std::cout << a.first << std::endl;		// Sunday
 	std::cout << a.second << std::endl;		// 0
-
+	
 	return 0;
 }
