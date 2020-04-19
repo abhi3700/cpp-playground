@@ -14,6 +14,18 @@ std::pair<string, int> set_weekno(string day, int num) {
 }
 
 int main() {
+	// M-1:
+	// std::pair<string, int> daynum_week;
+
+	// daynum_week = std::make_pair("Sunday", 0);
+
+
+	// std::cout << daynum_week.first << std::endl;
+	// std::cout << daynum_week.second << std::endl;
+
+// ---------------------------------------------------------------------------
+
+
 	std::pair<string, int> a = set_weekno("Sunday", 0);
 
 	std::cout << a.first << std::endl;		// Sunday
