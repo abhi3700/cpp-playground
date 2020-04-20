@@ -1,24 +1,37 @@
-/*
-	Create a multiple return types function.
-*/
+#include <iostream>
+#include <vector>
 
-#include <iostream>		// cout
-#include <utility>		// std::pair, std::make_pair
-
-// using namespace std;
 using std::string;
 
 
-std::pair<string, int> set_weekno(string day, int num) {
-	return std::make_pair(day, num);
+void vector_eg() {
+	// std::vector<string> v {"aamir", "hrithik", "family"};
+	std::vector<string> v;
+
+
+	v.emplace_back("aamir");
+	v.emplace_back("hrithik");
+	v.emplace_back("family");
+
+	v.pop_back();	// erase from back
+
+
+	std::cout << "Without Iterator:" << std::endl;
+	for (int i = 0; i < v.size(); ++i)
+	{
+		std::cout << v[i] << std::endl;
+	}
+
+	std::cout << "With Iterator:" << std::endl;
+	for (std::vector<string>::iterator i = v.begin(); i != v.end(); ++i)
+	{
+		std::cout << *i << std::endl;
+	}
 }
 
+
 int main() {
-	std::pair<string, int> a = set_weekno("Sunday", 0);
-
-	std::cout << a.first << std::endl;		// Sunday
-	std::cout << a.second << std::endl;		// 0
-
+	vector_eg();
 
 
 	return 0;
