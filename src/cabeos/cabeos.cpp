@@ -40,8 +40,17 @@ public:
 	`unsigned long` ranges from 0 to 4.2 billion integer no.
 	@return: std::pair<float, unsigned long>
 	*/
-	std::pair<float, unsigned long> book_ride(double start_loc, double finish_loc, string car_type) {
+	std::pair<float, unsigned long> book_ride(
+												const string& passenger_name,
+												const string& driver_name,
+												double start_loc, 
+												double finish_loc, 
+												const string& car_type
+											) 
+	{
 		std::cout << "The ride is on the way!..." << std::endl;
+
+		// TODO: store in the database
 
 		float a = calc_epr(start_loc, finish_loc, car_type);	// calculate Estimated price of ride
 		unsigned long b = calc_eta(start_loc, finish_loc);				// calculate ETA of the ride
@@ -50,8 +59,28 @@ public:
 	}
 
 	void cancel_ride(float ride_no) {
-		
+		// TODO: delete from the database
 	}
+
+	std::pair<float, unsigned long> modify_ride(
+												const string& passenger_name,
+												const string& driver_name,
+												double start_loc, 
+												double finish_loc, 
+												const string& car_type
+											) 
+	{
+		std::cout << "The ride is on the way!..." << std::endl;
+
+		// TODO: update in the database
+
+
+		float a = calc_epr(start_loc, finish_loc, car_type);	// calculate Estimated price of ride
+		unsigned long b = calc_eta(start_loc, finish_loc);				// calculate ETA of the ride
+
+		return std::make_pair(a, b);
+	}
+
 	
 };
 
