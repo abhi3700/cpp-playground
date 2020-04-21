@@ -1,3 +1,4 @@
 * YouTube Videos 
   - `std::endl` vs `\n`
-  - `getline` vs `scanf`
+  - `getline` vs `cin`
+  - `string` vs `const char*`
