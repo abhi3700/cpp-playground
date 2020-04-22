@@ -2,3 +2,6 @@
   - `std::endl` vs `\n`
   - `getline` vs `cin`
   - `string` vs `const char*`
+
+* move include/ to libs/
+  - set examples for boost
