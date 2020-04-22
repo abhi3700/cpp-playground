@@ -2,31 +2,7 @@
 Practice C++ coding with other github repos
 
 ## Installation
-## GCC: GNU Compiler Collection
-* gcc vs g++ differences
-	- define
-```
-  gcc: GNU C Compiler
-  g++: GNU C++ Compiler
-```
-	- gcc will compile: *.c/*.cpp files as C and C++ respectively.
-	- g++ will compile: *.c/*.cpp files but they will all be treated as C++ files.
-	- Also if you use g++ to link the object files it automatically links in the std C++ libraries (gcc does not do this).
-	- gcc compiling C files has fewer predefined macros.
-	- gcc compiling *.cpp and g++ compiling *.c/*.cpp files has a few extra macros.
-
-> Note: For c++ you should use g++.
-
-* OS
-	- Linux (Ubuntu)
-		+ Install using `sudo apt install g++`
-		+ Test using `g++ hello.cpp` --> creates `a.out` file in this directory. <br/>
-			Also, using `g++ hello.cpp -o hello` --> creates `hello` file in this directory.
-	- Windows
-	 
-
-### CMake
-
+Please refer to [this](https://github.com/abhi3700/My_Learning-Cpp#installation)
 
 ## Dependencies
 * C++ Include libs - `include`
