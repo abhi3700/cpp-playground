@@ -4,20 +4,6 @@
 # NOTE: in case of any unexpected error, try to use `dos2unix <shell-script-file-name.sh>`
 ##########################################################################
 # -----------------------------------------------------------------
-# include/boost
-if [[ -d "include/boost" ]]; then
-	# echo "boost folder exist"
-	cd ./include/boost
-	git pull
-	cd ..
-	cd ..
-else
-	# echo "boost folder NOT exist"
-	cd ./include
-	git submodule add https://github.com/abhi3700/boost boost
-	cd ..
-fi
-# -----------------------------------------------------------------
 # include/simdjson
 if [[ -d "include/simdjson" ]]; then
 	# echo "simdjson folder exist"
