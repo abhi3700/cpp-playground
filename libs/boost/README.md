@@ -15,28 +15,43 @@ Please, refer to [this](https://github.com/abhi3700/My_Learning-Cpp/blob/master/
 
 ## Quick Start
 * Example code:
+
+<details>
+	<summary>View code:</summary>
+
 ```cpp
 #include <iostream>
-#include <NumCpp.hpp>	// nc array
-#include <typeinfo>		// typeid
+#include <boost/algorithm/string.hpp>
+#include <typeinfo>
+
+using std::string;
+using boost::algorithm::trim;
+using boost::algorithm::trim_copy;
 
 
-int main() {
-	auto v = nc::linspace<int>(1, 10, 5);
-
-	// check the type
-	// std::cout << typeid(v).name() << std::endl;		// N2nc7NdArrayIiEE
+int main()
+{
+	string s1 = "	Welcome to the boost		";
+	string s2 = s1;
+	string s3 = "   C++ is actually simple, but made complex to support everything";
 	
-	// print the array elements
-	for(auto&& x : v) {
-		std::cout << x << std::endl;
-	}
-	return 0;
+	trim(s2);	// trimming only the string s2
+
+	string new_string = trim_copy(s3);	// trimming s3 & store the modified copy in new string.
+
+
+	// print the final strings
+	std::cout << s1 << std::endl;
+	std::cout << s2 << std::endl;
+	std::cout << s3 << std::endl;
+	std::cout << new_string << std::endl;
+
+	return 0;  
 }
-``` 
+```
+</details>
 
 ## Resources
-* Github: https://github.com/dpilger26/NumCpp
-* Brief syntaxes: https://github.com/dpilger26/NumCpp#from-numpy-to-numcpp--a-quick-start-guide
-* Examples: https://github.com/dpilger26/NumCpp/tree/master/examples
-* Documentation: https://dpilger26.github.io/NumCpp/doxygen/html/index.html
+* Website: https://www.boost.org/
+* Github: https://github.com/boostorg/boost
+* Documentation: https://www.boost.org/doc/libs/1_72_0/doc/html/index.html
