@@ -6,9 +6,6 @@ Please refer to [this](https://github.com/abhi3700/My_Learning-Cpp#installation)
 
 ## Dependencies
 * C++ Include libs - `include`
-  - Boost - [My repo in Github](https://github.com/abhi3700/boost) - `git`
-    + create: `git submodule add https://github.com/abhi3700/boost boost`
-    + update: `cd boost` >> `git pull`  
   - [simdjson](https://github.com/lemire/simdjson) - `svn`
     + create: `svn checkout https://github.com/lemire/simdjson/trunk/include/simdjson`
     + update: `cd boost` >> `svn update`  
