@@ -13,21 +13,23 @@
 ## Installation [For Linux (Ubuntu)]
 > Note that Boost Python components require a Python version suffix (Boost 1.67 and later), e.g. python36 or python27 for the versions built against Python 3.6 and 2.7, respectively. This also applies to additional components using Python including mpi_python and numpy. Earlier Boost releases may use distribution-specific suffixes such as 2, 3 or 2.7. These may also be used as suffixes, but note that they are not portable. [Source](https://cmake.org/cmake/help/v3.12/module/FindBoost.html)
 
-1. Download the latest boost lib from [here](https://www.boost.org/users/download/).
+__Follow the steps below:__
 
-1. Open `bash` terminal
+* Download the latest boost lib from [here](https://www.boost.org/users/download/).
+
+* Open `bash` terminal
 ```console
 tar -xzvf boost_1_72_0.tar.gz
 cd boost_1_72_0
 ```
-1. Install __python3.6m__: `$ sudo apt-get install python3.6-dev`
+* Install __python3.6m__: `$ sudo apt-get install python3.6-dev`
 	- check the installation whether __python3.6m__ is present inside '/usr/include/' directory:
 ```console
 $ find /usr/include -name python3.6m
 /usr/include/python3.6m
 /usr/include/x86_64-linux-gnu/python3.6m
 ```
-1. create 'user-config.jam' file in home directory
+* create 'user-config.jam' file in home directory
 	- `$ nano ~/user-config.jam`
 	- write this content inside the file or else, just copy "./extra/user-config.jam" to "~/" using `$ cp ./extra/user-config.jam ~/`
 ```txt
@@ -35,7 +37,7 @@ echo "using mpi ;
 using gcc: : g++ ;
 using python : 3.6 : /usr/bin/python3 : /usr/include/python3.6m : /usr/local/lib ;"
 ```
-1. `$ ./bootstrap.sh --with-python=/usr/bin/python3 --with-python-version=3.6 --with-python-root=/usr/local/lib/python3.6 --prefix=/usr/local`
+* `$ ./bootstrap.sh --with-python=/usr/bin/python3 --with-python-version=3.6 --with-python-root=/usr/local/lib/python3.6 --prefix=/usr/local`
 ```console
 Building Boost.Build engine with toolset gcc... tools/build/src/engine/b2
 Unicode/ICU support for Boost.Regex?... not found.
@@ -71,29 +73,29 @@ Further information:
 cxx --version
 ./build.sh: 17: ./build.sh: cxx: not found
 ```
-1. Then,
+* Then,
 ```console
 $ sudo ./b2 install -a --with=all
 $ sudo ldconfig
 ```
-1. From apt
+* From apt
 ```console
 $ sudo apt-get install libboost-all-dev
 ```
-1. find `libboost_python3.so` via:
+* find `libboost_python3.so` via:
 ```console
 $ sudo find /usr/lib -name "libboost_python-py36.so"
 /usr/lib/x86_64-linux-gnu/libboost_python-py36.so
 ```
-1. cd to where you find it
+* cd to where you find it
 ```console
 $ cd /usr/lib/x86_64-linux-gnu/
 ```
-1. link libboost_python3.so
+* link libboost_python3.so
 ```console
 $ sudo ln -s libboost_python-py35.so libboost_python3.so
 ```
-1. This step is to let `g++` find `pyconfig.h` file.
+* This step is to let `g++` find `pyconfig.h` file.
 	- locate in `/usr/include/` via:
 ```console
 $ find /usr/include -name pyconfig.h
@@ -107,7 +109,7 @@ $ find /usr/include -name pyconfig.h
 # 'pyconfig.h' for Boost-python
 export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/include/python3.7m/"
 ```
-1. add `include_directories(/usr/include/python3.6m)` to 'CMakeLists.txt' for a project (say hello). The "CMakeLists.txt" looks like:
+* add `include_directories(/usr/include/python3.6m)` to 'CMakeLists.txt' for a project (say hello). The "CMakeLists.txt" looks like:
 ```cmake
 cmake_minimum_required(VERSION 3.7.2)
 
@@ -118,9 +120,9 @@ include_directories(/usr/include/python3.6m)
 FILE(COPY hello.py DESTINATION .)
 add_test(NAME 01-HelloWorld COMMAND ${PYTHON_EXECUTABLE} hello.py)
 ```
-1. `$ cmake .`
-1. `$ make`
-1. Now, after successful build by `make`, it gives this error on running this file `$ ./hello.so` or `python3 hello.py`:
+* `$ cmake .`
+* `$ make`
+* Now, after successful build by `make`, it gives this error on running this file `$ ./hello.so` or `python3 hello.py`:
 ```console
 Segmentation fault (core dumped)
 ```
