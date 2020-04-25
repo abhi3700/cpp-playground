@@ -20,7 +20,6 @@
 tar -xzvf boost_1_72_0.tar.gz
 cd boost_1_72_0
 ```
-
 1. Install __python3.6m__: `$ sudo apt-get install python3.6-dev`
 	- check the installation whether __python3.6m__ is present inside '/usr/include/' directory:
 ```console
@@ -28,7 +27,6 @@ $ find /usr/include -name python3.6m
 /usr/include/python3.6m
 /usr/include/x86_64-linux-gnu/python3.6m
 ```
-
 1. create 'user-config.jam' file in home directory
 	- `$ nano ~/user-config.jam`
 	- write this content inside the file or else, just copy "./extra/user-config.jam" to "~/" using `$ cp ./extra/user-config.jam ~/`
@@ -37,7 +35,6 @@ echo "using mpi ;
 using gcc: : g++ ;
 using python : 3.6 : /usr/bin/python3 : /usr/include/python3.6m : /usr/local/lib ;"
 ```
-
 1. `$ ./bootstrap.sh --with-python=/usr/bin/python3 --with-python-version=3.6 --with-python-root=/usr/local/lib/python3.6 --prefix=/usr/local`
 ```console
 Building Boost.Build engine with toolset gcc... tools/build/src/engine/b2
@@ -64,8 +61,7 @@ Further information:
    - Boost.Build documentation:
      http://www.boost.org/build/
 ```
-
-	>  NOTE: Here, please ensure that `gcc` is installed, or else: just do it by `sudo apt install g++` & `sudo apt-get install gcc`. The error could be like this in form of "bootstrap.log" file.
+	-  NOTE: Here, please ensure that `gcc` is installed, or else: just do it by `sudo apt install g++` & `sudo apt-get install gcc`. The error could be like this in form of "bootstrap.log" file.
 ```console
 ###
 ###
@@ -75,7 +71,6 @@ Further information:
 cxx --version
 ./build.sh: 17: ./build.sh: cxx: not found
 ```
-
 1. Then,
 ```console
 $ sudo ./b2 install -a --with=all
@@ -123,7 +118,6 @@ include_directories(/usr/include/python3.6m)
 FILE(COPY hello.py DESTINATION .)
 add_test(NAME 01-HelloWorld COMMAND ${PYTHON_EXECUTABLE} hello.py)
 ```
-
 1. `$ cmake .`
 1. `$ make`
 1. Now, after successful build by `make`, it gives this error on running this file `$ ./hello.so` or `python3 hello.py`:
