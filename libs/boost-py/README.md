@@ -11,6 +11,8 @@
 	- __code fast__ in Python.
 
 ## Installation [For Linux (Ubuntu)]
+> Note that Boost Python components require a Python version suffix (Boost 1.67 and later), e.g. python36 or python27 for the versions built against Python 3.6 and 2.7, respectively. This also applies to additional components using Python including mpi_python and numpy. Earlier Boost releases may use distribution-specific suffixes such as 2, 3 or 2.7. These may also be used as suffixes, but note that they are not portable. [Source](https://cmake.org/cmake/help/v3.12/module/FindBoost.html)
+
 1. Download the latest boost lib from [here](https://www.boost.org/users/download/).
 
 1. Open `bash` terminal
@@ -124,6 +126,10 @@ add_test(NAME 01-HelloWorld COMMAND ${PYTHON_EXECUTABLE} hello.py)
 
 1. `$ cmake .`
 1. `$ make`
+1. Now, after successful build by `make`, it gives this error on running this file `$ ./hello.so` or `python3 hello.py`:
+```console
+Segmentation fault (core dumped)
+```
 
 ## Editor (Sublime Text 3)
 1. Use C++ packages as per [this guide](https://github.com/abhi3700/My_Learning-Cpp/blob/master/README.md#sublime-text-3-recommended-editor)
