@@ -93,7 +93,7 @@ $ cd /usr/lib/x86_64-linux-gnu/
 ```
 * link libboost_python3.so
 ```console
-$ sudo ln -s libboost_python-py35.so libboost_python3.so
+$ sudo ln -s libboost_python-py36.so libboost_python3.so
 ```
 * This step is to let `g++` find `pyconfig.h` file.
 	- locate in `/usr/include/` via:
@@ -107,7 +107,7 @@ $ find /usr/include -name pyconfig.h
 	- Now, add it to C++ include path by adding this to `.bashrc` file via `$ nano ~/.bashrc`
 ```console
 # 'pyconfig.h' for Boost-python
-export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/include/python3.7m/"
+export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/include/python3.6m/"
 ```
 * add `include_directories(/usr/include/python3.6m)` to 'CMakeLists.txt' for a project (say hello). The "CMakeLists.txt" looks like:
 ```cmake
@@ -126,6 +126,154 @@ add_test(NAME 01-HelloWorld COMMAND ${PYTHON_EXECUTABLE} hello.py)
 ```console
 Segmentation fault (core dumped)
 ```
+* ~~The "CMakeLists.txt" is as follows:~~
+```cmake
+cmake_minimum_required(VERSION 3.0)
+
+find_package(Boost COMPONENTS python${PYTHON_VERSION_MAJOR})
+# message(${PYTHON_VERSION_MAJOR})
+
+find_package(PythonInterp 3)
+find_package(PythonLibs 3 REQUIRED)
+
+PYTHON_ADD_MODULE(hello hello.cpp)
+
+include_directories(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
+# message(${Boost_INCLUDE_DIRS})		# /usr/local/include
+
+FILE(COPY hello.py DESTINATION .)
+
+target_link_libraries(hello ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
+add_test(NAME 01-HelloWorld COMMAND ${PYTHON_EXECUTABLE} hello.py)
+# message(${PYTHON_EXECUTABLE})		# /usr/bin/python3
+```
+
+* It still gives "Segmentation fault". But this time it's because of this "hello.so" file. 
+	- Just check via `$ ldd hello.so`
+```console
+        linux-vdso.so.1 (0x00007ffffbe49000)
+        libpython3.6m.so.1.0 => /usr/lib/x86_64-linux-gnu/libpython3.6m.so.1.0 (0x00007f5afad50000)
+        libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f5afa9c0000)
+        libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f5afa7a0000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f5afa3a0000)
+        libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f5afa160000)
+        libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f5af9f40000)
+        libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f5af9d10000)
+        libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f5af9b00000)
+        libutil.so.1 => /lib/x86_64-linux-gnu/libutil.so.1 (0x00007f5af98f0000)
+        libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f5af9550000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f5afb800000)
+```
+* So, it is missing `libboost_python3-py36.so.1.65.1` i.e. boost_python, which has already been installed via `$ sudo apt-get install libboost-all-dev`:
+	- just locate this via:
+```console
+$ ls /usr/lib/x86_64-linux-gnu | grep libboost_python3 | grep 1.65.1
+libboost_python3-py36.so.1.65.1
+```
+
+	> NOTE: for 64-bit machine, it gets saved into `/usr/lib/x86_64-linux-gnu`, otherwise into `/usr/lib` folder.
+
+	- __[NOT Mandatory]__ add to `LD_LIBRARY_PATH` via `$ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/libboost_python3-py36.so.1.65.1`
+* So, the __FINAL__ "CMakeLists.txt" is as follows:
+```cmake
+cmake_minimum_required(VERSION 3.0)
+ 
+project(greeter)
+
+# Find necessary packages
+find_package(PythonInterp 3)
+find_package(PythonLibs 3 REQUIRED)
+ 
+# find_package(Boost COMPONENTS python${PYTHON_VERSION_MAJOR})
+
+# Including both boost & python directories
+include_directories(${Boost_INCLUDE_DIR} ${PYTHON_INCLUDE_DIR})
+
+# message(${Boost_INCLUDE_DIR})		# /usr/local/include
+# message(${PYTHON_INCLUDE_DIR})		# /usr/include/python3.6m
+ 
+# Build & Link our library
+# add_library(hello MODULE hello.cpp) 		# OR
+PYTHON_ADD_MODULE(hello hello.cpp)
+
+
+# setting Boost_LIBRARIES & PYTHON_LIBRARIES
+if(UNIX)
+        set(Boost_LIBRARIES "/usr/lib/x86_64-linux-gnu/libboost_python3-py36.so.1.65.1")
+        set(PYTHON_LIBRARIES "/usr/lib/x86_64-linux-gnu/libpython3.6m.so")
+endif()
+
+target_link_libraries(hello ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
+
+# don't prepend wrapper library name with lib ==> otherwise, it would prepare "libhello.so" file
+set_target_properties(hello PROPERTIES PREFIX "")
+add_test(NAME 01-HelloWorld COMMAND ${PYTHON_EXECUTABLE} hello.py)```
+* `$ cmake .` & then `$ make`
+```console
+$ cmake .
+-- Boost  found.
+-- Found Boost components:
+   python3
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/f/Coding/github_repos/cpp-playground/gitcpplibs/boost-py-eg/01-HelloWorld
+$ make
+[100%] Built target hello
+```
+* running the file
+```console
+$ ./hello.so
+Segmentation fault (core dumped)
+$ python3 hello.py
+hello, world
+```
+
+	> NOTE: `$ python3 hello.py` is the ideal way to run the "hello.py" program. "hello.so" is not executable.
+
+
+
+* Also, you can see the content of "hello.so" file:
+```console
+$ ldd hello.so
+        linux-vdso.so.1 (0x00007fffef7f9000)
+        libboost_python3-py36.so.1.65.1 => /usr/lib/x86_64-linux-gnu/libboost_python3-py36.so.1.65.1 (0x00007f554ee20000)
+        libpython3.6m.so.1.0 => /usr/lib/x86_64-linux-gnu/libpython3.6m.so.1.0 (0x00007f554e770000)
+        libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f554e3e0000)
+        libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f554e1c0000)
+        libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f554ddc0000)
+        libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007f554dba0000)
+        libexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007f554d950000)
+        libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007f554d730000)
+        libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007f554d520000)
+        libutil.so.1 => /lib/x86_64-linux-gnu/libutil.so.1 (0x00007f554d310000)
+        libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007f554cf70000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007f554f400000)
+```
+	- So, you can see that  `libboost_python3-py36.so.1.65.1` gets added.
+* DONE!
+
+
+* ### NOTES
+	- If there is no `*.so` file then, the error will look like this on execution:
+```console
+$ python3 hello.py
+Traceback (most recent call last):
+  File "hello.py", line 3, in <module>
+    import hello
+  File "/mnt/f/Coding/github_repos/cpp-playground/libs/boost-py/examples/01-HelloWorld/hello.py", line 4, in <module>
+    print (hello.greet())
+AttributeError: module 'hello' has no attribute 'greet'
+```
+	- `Boost_INCLUDE_DIR` = "/usr/local/include"
+	- `PYTHON_INCLUDE_DIR` = "/usr/include/python3.6m"
+	- `Boost_LIBRARIES` = "/usr/lib/x86_64-linux-gnu/libboost_python3-py36.so.1.65.1"
+	- `PYTHON_LIBRARIES` = "/usr/lib/x86_64-linux-gnu/libpython3.6m.so"
+	- Link these 2 libraries - Boost & Python
+	- This is to create `hello.so` i.e. not prepend like `libhello.so` use this line:
+```cmake
+set_target_libraries(hello PROPERTIES PREFIX "")
+```
+
 
 ## Editor (Sublime Text 3)
 1. Use C++ packages as per [this guide](https://github.com/abhi3700/My_Learning-Cpp/blob/master/README.md#sublime-text-3-recommended-editor)
@@ -157,3 +305,4 @@ Segmentation fault (core dumped)
 ## References
 * https://github.com/zpoint/Boost-Python-Examples
 * https://github.com/abingham/boost_python_tutorial
+* https://www.auctoris.co.uk/2017/12/21/advanced-c-python-integration-with-boost-python/
