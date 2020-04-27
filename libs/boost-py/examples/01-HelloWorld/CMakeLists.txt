@@ -29,4 +29,6 @@ target_link_libraries(hello ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
 
 # don't prepend wrapper library name with lib ==> otherwise, it would prepare "libhello.so" file
 set_target_properties(hello PROPERTIES PREFIX "")
+
+# test to find the executable in WORKING_DIRECTORY, this is sufficient
 add_test(NAME 01-HelloWorld COMMAND ${PYTHON_EXECUTABLE} hello.py)
