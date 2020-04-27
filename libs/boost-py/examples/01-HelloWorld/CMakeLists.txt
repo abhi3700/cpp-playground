@@ -7,8 +7,7 @@ find_package(PythonInterp 3)
 find_package(PythonLibs 3 REQUIRED)
 include_directories(${PYTHON_INCLUDE_DIR})
  
-# find_package(Boost COMPONENTS python3 REQUIRED)
-find_package(Boost COMPONENTS python${PYTHON_VERSION_MAJOR})
+# find_package(Boost COMPONENTS python${PYTHON_VERSION_MAJOR})
 
 include_directories(${Boost_INCLUDE_DIR})
  
