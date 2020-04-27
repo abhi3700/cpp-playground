@@ -5,14 +5,19 @@ project(greeter)
 # Find necessary packages
 find_package(PythonInterp 3)
 find_package(PythonLibs 3 REQUIRED)
-include_directories(${PYTHON_INCLUDE_DIR})
  
 # find_package(Boost COMPONENTS python${PYTHON_VERSION_MAJOR})
 
-include_directories(${Boost_INCLUDE_DIR})
+# Including both boost & python directories
+include_directories(${Boost_INCLUDE_DIR} ${PYTHON_INCLUDE_DIR})
+
+# message(${Boost_INCLUDE_DIR})		# /usr/local/include
+# message(${PYTHON_INCLUDE_DIR})		# /usr/include/python3.6m
  
 # Build & Link our library
-add_library(hello MODULE hello.cpp)
+# add_library(hello MODULE hello.cpp) 		# OR
+PYTHON_ADD_MODULE(hello hello.cpp)
+
 
 # setting Boost_LIBRARIES & PYTHON_LIBRARIES
 if(UNIX)
@@ -22,5 +27,6 @@ endif()
 
 target_link_libraries(hello ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
 
-# don't prepend wrapper library name with lib
+# don't prepend wrapper library name with lib ==> otherwise, it would prepare "libhello.so" file
 set_target_properties(hello PROPERTIES PREFIX "")
+add_test(NAME 01-HelloWorld COMMAND ${PYTHON_EXECUTABLE} hello.py)
