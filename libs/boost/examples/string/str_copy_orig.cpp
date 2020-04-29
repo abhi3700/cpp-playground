@@ -9,7 +9,7 @@
 #include <boost/algorithm/string.hpp>
 
 using std::string;
-using namespace boost;
+using namespace boost::algorithm;
 
 int main() {
 	string str1 = " hello string1! ";
