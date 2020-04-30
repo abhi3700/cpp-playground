@@ -1,7 +1,13 @@
+# filenames
 ~$*
 *.exe
 *.out
 *.so
+
+# .cpp files having name starting with 'test' 
+test*.cpp
+
+# Build files using CMake
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
