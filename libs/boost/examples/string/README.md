@@ -1,6 +1,6 @@
 # String using Boost library
 ## Methods:
-### Conversion ([code](./str_copy_orig.cpp))
+### Conversion ([code](./str_cap_copy_orig.cpp))
 * `to_lower`: converts the original
 * `to_lower_copy`: copy the original & convert the copied string
 * `to_upper`: converts the original
