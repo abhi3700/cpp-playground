@@ -1,7 +1,5 @@
 /**
- * 				Assigning to Map
- * 				- `insert` operator
- * 
+ * 				`insert` operator
  */
 #include <iostream>
 #include <boost/assign/list_inserter.hpp>	// for insert() operator
@@ -12,6 +10,8 @@ using std::string;
 
 int main() {
 	std::map<string, int> students;
+
+	// assign
 	insert(students)
 			("ramesh", 101)	("suresh", 102)
 			("gaurav", 103) ("sid", 104)
