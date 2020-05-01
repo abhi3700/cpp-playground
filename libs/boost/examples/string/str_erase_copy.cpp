@@ -15,11 +15,11 @@ using std::string;
 using namespace boost::algorithm;
 
 int main() {
-	string str1 = "geeksforgeeks";
+	string str1 = "abhijitandabhijit";
 
-	std::cout << erase_first_copy(str1, "g") << std::endl;		// remove first occurence
-	std::cout << erase_nth_copy(str1, "g", 1) << std::endl;		// remove 2nd occurence (numbering starts from 0, 1, 2,....)
-	std::cout << erase_all_copy(str1, "g") << std::endl;		// removes all "g" occurences
+	std::cout << erase_first_copy(str1, "a") << std::endl;		// remove first occurence
+	std::cout << erase_nth_copy(str1, "a", 1) << std::endl;		// remove 2nd occurence (numbering starts from 0, 1, 2,....)
+	std::cout << erase_all_copy(str1, "a") << std::endl;		// removes all "g" occurences
 	std::cout << erase_head_copy(str1, 5) << std::endl;			// removes 5 characters from the head of string
 	std::cout << erase_tail_copy(str1, 1) << std::endl;			// removes 1 characters from the tail of string
 

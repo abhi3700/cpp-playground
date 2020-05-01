@@ -13,7 +13,15 @@
 * `erase_head_copy`: To shorten a string by a specific number of characters from front.
 * `erase_tail_copy`: To shorten a string by a specific number of characters from rear.
 
+## Trim ([code](./str_trim.cpp)]
+* `trim`: will trim the whitespaces from head/tail of the original string. 
+* `trim_copy`: will trim the whitespaces from head/tail of the copied string. 
+
 ### Replace ([code](./str_replace_copy.cpp))
 * `replace_first_copy`:  will replace the first occurrence in the source string.
+* `replace_last_copy`:  will replace the last occurrence in the source string.
 * `replace_nth_copy`:  will replace the nth occurrence in the source string.
 * `replace_all_copy`:  will replace all occurrences of a particular character from a string.
+
+### Split ([code](./str_split.cpp))
+* `split`: will split the strings into substrings using separator
