@@ -1,6 +1,5 @@
 #include <iostream>
-#include <algorithm>
-#include <iterator>
+#include <algorithm>		// find
 #include <vector>
 
 int main() {
