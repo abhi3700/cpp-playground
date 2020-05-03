@@ -4,4 +4,9 @@
   - `string` vs `const char*`
 
 * move include/ to libs/
-  - set examples for boost
+  - boost-py
+    - TEST: autoplot snippet & try opening chart in browser.
+- plotly-cpp
+- cmake
+- csv
+- redis cpp
