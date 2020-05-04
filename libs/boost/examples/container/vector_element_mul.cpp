@@ -8,7 +8,6 @@ using namespace boost::assign;
 int main() {
 	typedef boost::tuple<int, string, int, string> tuple;
 	std::vector<tuple> v1;
-
 	// insert
 	// v1 = list_of<tuple>(1, "abhi", 102, "fab") (2, "victor", 103, "design") (3, "ramesh", 104, "testing") (4, "suresh", 105, "quality");
 	v1 = tuple_list_of(1, "abhi", 102, "fab") (2, "victor", 103, "design") (3, "ramesh", 104, "testing") (4, "suresh", 105, "quality");
