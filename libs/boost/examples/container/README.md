@@ -33,6 +33,7 @@
 	- Element type (single)
 	- How?
 		+ simply add the list begineend() into vector function.
+	- [Example code](./bonus-convert_list_to_vector.cpp)
 
 > Facts:
 > - If you frequently need to access the Nth element of a sequence, std::list, which is implemented as a doubly linked list, is probably not the right choice. std::vector or std::deque would likely be better.
