@@ -74,8 +74,69 @@
 	- [ ] search
 	- [x] display
 
+## Set
+### Single element: Each element of single value
+* [Example code](./set_element_1.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [x] search
+	- [x] display
 
-## Extra
+### Two element: Each element of two values
+* [Example code](./set_element_2.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
+### Multiple element: Each element of multiple values
+* [Example code](./set_element_mul.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
+## Multiset
+### Single element: Each element of single value
+* [Example code](./multiset_element_1.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [x] search
+	- [x] display
+
+### Two element: Each element of two values
+* [Example code](./multiset_element_2.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
+
+## Map
+### Two element: Each element of two values
+* [Example code](./map_element_2.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
+## Multimap
+### Two element: Each element of two values
+* [Example code](./map_element_2.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
+
+## Bonus
 * Convert list to vector
 	- Why?
 		+ bcoz, difficult to access element by position, unlike vector, deque.
