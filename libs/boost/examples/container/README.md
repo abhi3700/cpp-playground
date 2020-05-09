@@ -24,6 +24,56 @@
 	- [ ] search
 	- [x] display
 
+## List
+### Single element: Each element of single value
+* [Example code](./list_element_1.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [x] search
+	- [x] display
+
+### Two element: Each element of two values
+* [Example code](./list_element_2.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
+### Multiple element: Each element of multiple values
+* [Example code](./list_element_mul.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
+## Deque
+### Single element: Each element of single value
+* [Example code](./deque_element_1.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [x] search
+	- [x] display
+
+### Two element: Each element of two values
+* [Example code](./deque_element_2.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
+### Multiple element: Each element of multiple values
+* [Example code](./deque_element_mul.cpp)
+* methods
+	- [x] insert
+	- [x] access
+	- [ ] search
+	- [x] display
+
 
 ## Extra
 * Convert list to vector
@@ -33,7 +83,7 @@
 	- Element type (single)
 	- How?
 		+ simply add the list begineend() into vector function.
-	- [Example code](./bonus-convert_list_to_vector.cpp)
+	- [Example code](./bonus-1_convert_list_to_vector.cpp)
 
 > Facts:
 > - If you frequently need to access the Nth element of a sequence, std::list, which is implemented as a doubly linked list, is probably not the right choice. std::vector or std::deque would likely be better.
