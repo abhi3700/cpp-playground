@@ -10,3 +10,7 @@
 - cmake
 - csv
 - redis cpp
+
+- boost/container/
+  - set of multiple values: std::set<tuple>
+  - map of multiple values: std::map<tuple, pair>
