@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <boost/assert.hpp>
+#include <typeinfo>
 
 
 template<typename T>
@@ -25,9 +26,7 @@ class Plus
 	int val;
 public:
 	Plus(){}
-	Plus(int _val) {
-		val = _val;
-	}
+	Plus(int _val) : val{_val} {}
 
 	int plusme(int x) const {
 		return x + val;
@@ -36,9 +35,6 @@ public:
 	int operator() (int x) const {
 		return x + val;
 	}
-
-
-
 	
 };
 
@@ -60,9 +56,13 @@ int main() {
 
 
 	/* M-2 */
-	auto x = Plus(2);
-	BOOST_ASSERT(x(45) == 47);
+	// auto x = Plus(2);
+	// BOOST_ASSERT(x(45) == 47);
 
 
+	// ----------Using Lambda------------------	
+	auto plus = [value=1](int x) {return value + x;};
+	std::cout << typeid(plus).name() << std::endl;
+	// std::cout << plus << std::endl;
 	return 0;
 }
