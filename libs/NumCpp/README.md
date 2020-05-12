@@ -11,12 +11,12 @@ A Templatized Header Only C++ Implementation of the Python [NumPy](http://www.nu
 1. `$ cd build`
 1. `$ cmake ..`
 1. `make install`
-1. So, the "./include/" folder is extracted in "./usr/local/include/" path.
+1. So, the "./include/" folder is extracted in "/usr/local/include/" path.
 1. DONE!
 
 ## Editor (Sublime Text 3)
 1. Use C++ packages as per [this guide](https://github.com/abhi3700/My_Learning-Cpp/blob/master/README.md#sublime-text-3-recommended-editor)
-1. Now, for proper linting, copy the files & paste into `mingw-64` directory (in C:\ drive): __"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\lib\gcc\x86_64-w64-mingw32\8.1.0\include\c++__" 
+1. Now, for proper linting, copy the files & paste into `mingw-64` directory (in C:\ drive): __"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\lib\gcc\x86_64-w64-mingw32\8.1.0\include\c++"__ 
 1. DONE!
 
 ## Compiler (GNU, CMake) [For Linux (Ubuntu)]
