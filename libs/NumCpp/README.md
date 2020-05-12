@@ -20,7 +20,7 @@ A Templatized Header Only C++ Implementation of the Python [NumPy](http://www.nu
 1. DONE!
 
 ## Compiler (GNU, CMake) [For Linux (Ubuntu)]
-* GNU: `$ g++ -std=c++17 test.cpp -o test && ./test`
+* GNU: `$ g++ -std=c++17 test.cpp && ./a.out` - this creates a `a.out` file on successful compilation.
 * CMake: `$ cmake .` & then `$ make` & then `./test`
 
 ## Quick Start
