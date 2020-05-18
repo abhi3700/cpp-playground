@@ -27,13 +27,23 @@
 
 using boost::assign::list_of;
 
+
+
+
 int main() {
     std::vector<int> v1;
     v1 = list_of(1) (2) (4);
 
-    auto d = static_cast<double>(std::accumulate(v1.begin(), v1.end(), 0)/v1.size());			// convert to double
+    // M-1:
+    std::cout << std::accumulate(v1.begin(), v1.end(), 0) << std::endl;				// 0 + 1 + 2 + 4 = 7
 
-    std::cout << d << std::endl;
+    // M-2
+	auto lambda = [&](double a, double b){return a + b; };
+    std::cout << std::accumulate(v1.begin(), v1.end(), 0, lambda) << std::endl;				// 0 + (0+1) + (0+2) + (0+4) = 7
+
+	auto l = [&](double a, double b){return a * b; };
+    std::cout << std::accumulate(v1.begin(), v1.end(), 1, l) << std::endl;				// 1 + (1*1) + (1*2) + (1*4) = 8
+
 
 	return 0;
 }
