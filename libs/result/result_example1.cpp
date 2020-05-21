@@ -51,21 +51,24 @@ auto parse(double a) -> Result<double, string>{
 Result<double, string>
 operate (double a, double b, double c) {
 	auto y = pow(b, 2) - 4*a*c;
-
-	return parse(y).and_then([&] (auto _y){
-		return parse(b).and_then([&] (auto _b) {
-			return parse(a).map([&](auto _a) {
-				return Div(_y, _a).unwrap();
+	if (y >= 0) {
+		return parse(y).and_then([&] (auto _y){
+			return parse(b).and_then([&] (auto _b) {
+				return parse(a).map([&](auto _a) {
+					return Div(-b, 2*a).unwrap() + Div(Sqrt(y).unwrap(), 2*a).unwrap();
+				});
 			});
-		});
-	}); 
+		}); 
+	} else {
+		return Err(string{"(b^2-4ac) is negative."});
+	}
 }
 
 
 
 
 int main() {
-	std::cout << operate(3, 4, 5) << "\n";
+	std::cout << operate(1, 2, 5) << "\n";
 
 	return 0;
 }
