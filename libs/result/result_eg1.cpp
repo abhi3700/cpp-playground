@@ -8,11 +8,14 @@
 #include <iostream>
 #include <result/include/result.hpp>
 #include <cmath>
+#include <utility>
 
 using result::Result;
 using result::Ok;
 using result::Err;
 using std::string;
+using std::pair;
+using std::make_pair;
 
 auto Div(double a, double b) -> Result<double, string> {
 	if(b == 0)
@@ -38,11 +41,6 @@ auto parse(double a) -> Result<double, string> {
 	}
 }
 
-struct Pair
-{
-	double first;
-	double second;
-};
 
 /*auto Oper(double a, double b, double c) -> Result<double, string> {
 	auto y = pow(b, 2) - 4*a*c;
@@ -61,7 +59,7 @@ struct Pair
 }
 */
 
-auto Oper(double a, double b, double c) -> Result<struct Pair, string> {
+auto Oper(double a, double b, double c) -> Result<pair<double, double>, string> {
 	double x1 = 0.0, x2 = 0.0;
 	auto y = pow(b, 2) - 4*a*c;
 	if(y < 0)
@@ -87,8 +85,7 @@ auto Oper(double a, double b, double c) -> Result<struct Pair, string> {
 			});
 		}).unwrap();
 
-		struct Pair p = {x1, x2};
-		return Ok(p);
+		return Ok(make_pair(x1, x2));
 }
 
 
