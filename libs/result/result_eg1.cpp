@@ -62,8 +62,11 @@ auto parse(double a) -> Result<double, string> {
 auto Oper(double a, double b, double c) -> Result<pair<double, double>, string> {
 	double x1 = 0.0, x2 = 0.0;
 	auto y = pow(b, 2) - 4*a*c;
-	if(y < 0)
-		return Err(string{"Operation: (b^2 - 4ac) is negative."});
+
+	if(a == 0)
+		return Err(string{"Operation error: a can't be zero."});
+	else if(y < 0)
+		return Err(string{"Operation error: Factor (b^2 - 4ac) can't be negative."});
 	else
 		x1 = parse(y).and_then([&] (auto _y) {
 			return parse(b).and_then([&] (auto _b) {
@@ -90,11 +93,19 @@ auto Oper(double a, double b, double c) -> Result<pair<double, double>, string> 
 
 
 int main() {
-	auto x1 = Oper(3, 10, 5).unwrap().first;
-	auto x2 = Oper(3, 10, 5).unwrap().second;
+	// auto res = Oper(0, 4, 5);		// prints error
+	// auto res = Oper(3, 4, 5);		// prints error
+	auto res = Oper(3, 10, 5);
+	double x1 = 0.0, x2 = 0.0;
 
-	std::cout << "x1 = " << x1 << "\n";
-	std::cout << "x2 = " << x2 << "\n";
+	if(res.is_ok()) {
+		x1 = res.unwrap().first;
+		x2 = res.unwrap().second;
+		std::cout << "x1 = " << x1 << "\n";
+		std::cout << "x2 = " << x2 << "\n";
+	}
+	else
+		std::cout << res.unwrap_err() << "\n";
 
 
 
