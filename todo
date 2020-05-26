@@ -1,3 +1,4 @@
+- python vs cpp time analysis: import csv & print selected columns
 * YouTube Videos 
   - `std::endl` vs `\n`
   - `getline` vs `cin`
