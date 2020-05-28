@@ -4,8 +4,8 @@
 *.out
 *.so
 
-# .cpp files having name starting with 'test' 
-test*.cpp
+# files (.cpp, .py) having name starting with 'test' 
+test*
 
 # Build files using CMake
 CMakeFiles/
