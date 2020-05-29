@@ -6,6 +6,7 @@ Header-only C++17 library provides CSV reading/writing.
 * print the cell values.
 * remove empty rows (at least one cell is empty)
 * filtering with multiple conditions
+* pick the item from any _header_row_
 
 ## Installation [For Linux (Ubuntu)]
 1. Open `bash` (ubuntu) terminal at your preferred directory path ("F:\Coding\github_repos\cpp_libs\").
@@ -54,9 +55,9 @@ int main() {
 ``` 
 
 ## Coding
-* [Get column names](./1_getcolnames.cpp)
-* [Print all](./2_printall.cpp)
-* [Print all (with filtering)](./3_printall_filter.cpp)
+* [Get column names](./getcolnames.cpp)
+* [Print all](./printall.cpp)
+* [Print all (with filtering)](./printall_filter.cpp)
 
 ## Resources
 * Github: https://github.com/Neargye/csv-parser
