@@ -58,6 +58,8 @@ int main() {
 * [Get column names](./getcolnames.cpp)
 * [Print all](./printall.cpp)
 * [Print all (with filtering)](./printall_filter.cpp)
+* [Row size](./row_size.cpp)
+* [Count](./count.cpp)
 
 ## Resources
 * Github: https://github.com/Neargye/csv-parser
