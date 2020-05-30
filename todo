@@ -1,4 +1,38 @@
-- python vs cpp time analysis: import csv & print selected columns
+## python vs cpp time analysis: import csv & print selected columns
+- code for `test.cpp`
+```cpp
+#include <csv-parser/csv.hpp>
+
+using csv::CSVReader;
+
+int main() {
+  CSVReader reader("../data/equipment.csv");
+  for(auto& row : reader) {
+    std::cout 
+        << row[0].get<std::string>() << ","
+        << row["Site"].get<std::string>() << ","
+        << row["Result"].get<std::string>() << ","
+        << row["Etch Rate (A/Min)"].get<std::string>()
+    << "\n";
+  }
+
+  return 0;
+}
+```
+- code for `test.py`
+```py
+import pandas as pd
+
+def main():
+    df = pd.read_csv("../data/equipment.csv")
+    df = df[["Date", "Site", "Result", "Etch Rate (A/Min)"]]
+    print(df)
+
+if __name__ == '__main__':
+    main()
+```
+- add `JSON` section into Udemy course: (using custom lib)
+============================================================
 * YouTube Videos 
   - `std::endl` vs `\n`
   - `getline` vs `cin`
