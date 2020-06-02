@@ -1,21 +1,21 @@
 #include <csv-parser/csv.hpp>
 
-using std::string;
+using csv::CSVReader;
+using csv::CSVFormat;
 
 int main() {
-	csv::CSVFormat format;
+	CSVFormat format;
 	format.header_row(3);
-	csv::CSVReader reader("../data/equipment_header.csv", format);
+	CSVReader reader("../data/equipment_header.csv", format);
 
-	auto cols = reader.get_col_names();
 
-	for(auto& row : reader) {
-		std::cout << row[0].get<string>() << ", "
-					<< row["Site"].get<string>() << ", "
-					<< row["Result"].get<string>() << ", "
-					<< row["Etch Rate (A/Min)"].get<string>()
-					<< "\n";
+	for(auto&& row : reader) {
+		std::cout << row[0].get<>() << ", "
+					<< row["Site"].get<>() << ", " 
+					<< row["Etch Rate (A/Min)"].get<>() << ", " 
+					<< row["Result"].get<>() << 
+		"\n";
 	}
 
-	return 0;
+
 }
