@@ -60,6 +60,9 @@ int main() {
 * [Print all (with filtering)](./printall_filter.cpp)
 * [Row size](./row_size.cpp)
 * [Count](./count.cpp)
+* [Header row](./header_row.cpp)
+* [Example 1](./eg1.cpp)
+* [Null values](./null.cpp)
 
 ## Resources
 * Github: https://github.com/Neargye/csv-parser

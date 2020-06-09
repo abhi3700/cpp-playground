@@ -1,5 +1,4 @@
 /*
-				Example 2
 				- print the rows (all)
 */
 

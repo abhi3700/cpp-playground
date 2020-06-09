@@ -1,3 +1,7 @@
+/*
+		Print the rows where a column has null value
+*/
+
 #include <csv-parser/csv.hpp>
 
 using csv::CSVReader;
