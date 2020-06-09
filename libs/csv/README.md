@@ -63,6 +63,8 @@ int main() {
 * [Header row](./header_row.cpp)
 * [Example 1](./eg1.cpp)
 * [Null values](./null.cpp)
+* [Keep/Ignore/Throw](./keep_ignore_throw.cpp)
+* [define new row as header](./define_new_col_header_row.cpp)
 
 ## Resources
-* Github: https://github.com/Neargye/csv-parser
+* Github: https://github.com/vincentlaucsb/csv-parser
