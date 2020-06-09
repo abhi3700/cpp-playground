@@ -3,10 +3,18 @@ Header-only C++17 library provides CSV reading/writing.
 
 ## Features
 * get column names
-* print the cell values.
-* remove empty rows (at least one cell is empty)
-* filtering with multiple conditions
-* pick the item from any _header_row_
+* print all the cell values.
+* print all (filtering with multiple conditions)
+* get row_size
+* count the no. of rows
+* pick any row as _header_row_
+* Print the rows where a column has null value
+* Keep/Ignore/Throw
+    - keep rows with variable length
+    - ignore rows with variable length
+    - throw errors at position of row with variable length
+* Define new column names as header row
+* Write data to CSV
 
 ## Installation [For Linux (Ubuntu)]
 1. Open `bash` (ubuntu) terminal at your preferred directory path ("F:\Coding\github_repos\cpp_libs\").
@@ -65,6 +73,7 @@ int main() {
 * [Null values](./null.cpp)
 * [Keep/Ignore/Throw](./keep_ignore_throw.cpp)
 * [define new row as header](./define_new_col_header_row.cpp)
+* [Write data to CSV](./writer.cpp)
 
 ## Resources
 * Github: https://github.com/vincentlaucsb/csv-parser
