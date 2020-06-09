@@ -1,37 +1,33 @@
 #include <csv-parser/csv.hpp>
-#include <sstream>
+#include <fstream>		// ifstream, ofstream
 #include <vector>
 #include <deque>
 #include <list>
 
-
-using csv::CSVReader;
-using csv::make_csv_writer;
 using std::string;
-
+using csv::make_csv_writer;
+// using 
 
 int main() {
-    std::ofstream outfile("../data/demo_writer.csv");       // create file
-	
-    auto writer = make_csv_writer(outfile);
+	std::ofstream out_file("../data/demo_writer2.csv");
 
-	writer << std::vector<string>({ "A", "B", "C" })
-    << std::deque<string>({ "I'm", "too", "tired" })
-    << std::list<string>({ "to", "write", "documentation" });
+	auto writer = csv::make_csv_writer(out_file);
 
-    outfile.close();        // close file
+	writer << std::vector<string>{"Name", "Division", "EmpCode"}
+			<< std::deque<string>{"Abhijit", "Design", "10244"}
+			<< std::list<string>{"Victor", "Testing", "102435"};
 
-    // Read file data
-    CSVReader reader("../data/demo_writer.csv");
+	out_file.close();
 
+	std::cout << "==================" << "\n";
+	csv::CSVReader reader("../data/demo_writer2.csv");
 
-    for(auto&& row : reader) {
-    	std::cout << row["A"].get<>() << ", "
-    				<< row["B"].get<>() << ", "
-    				<< row["C"].get<>()
-    	<< "\n";
-    }
-
+	for(auto&& row : reader) {
+		std::cout << row[0].get<>() << ", " 
+					<< row[1].get<>() << ", "
+					<< row[2].get<>()		
+		<< "\n";
+	}
 
 	return 0;
 }
