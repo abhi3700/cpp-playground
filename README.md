@@ -1,5 +1,11 @@
 # cpp-playground
-Practice C++ coding with other github repos
+* Practice C++ coding with other github repos.
+* Uses C++17 standard
+* For Fundamental C++ concepts visit [here](./base)
+* For custom libs [here](./libs)
+* Includes
+  - Boost C++ lib
+  - Data Science
 
 ## Installation
 Please refer to [this](https://github.com/abhi3700/My_Learning-Cpp#installation)
