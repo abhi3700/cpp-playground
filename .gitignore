@@ -5,7 +5,6 @@
 *.so
 
 # folders
-excel/
 
 # files (.cpp, .py) having name starting with 'test' 
 test*
