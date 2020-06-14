@@ -5,6 +5,7 @@
 *.so
 
 # folders
+build/
 
 # files (.cpp, .py) having name starting with 'test' 
 test*
