@@ -24,7 +24,7 @@ Header-only C++17 library provides CSV reading/writing.
 1. DONE!
 
 ## Compiler (GNU, CMake) [For Linux (Ubuntu)]
-* GNU: `$ g++ -std=c++17 test.cpp && time ./a.out` - this creates & runs a `./a.out` file on successful compilation. Also, shows 
+<!-- * GNU: `$ g++ -std=c++17 test.cpp && time ./a.out` - this creates & runs a `./a.out` file on successful compilation. Also, shows  -->
 * CMake: `$ mkdir build && cd build` & `$ cmake ..` & then `$ make` & then `./test`
 ```cmake
 cmake_minimum_required(VERSION 3.5)
