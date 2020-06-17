@@ -10,9 +10,9 @@ Header-only C++17 library provides CSV reading/writing.
 * pick any row as _header_row_
 * Print the rows where a column has null value
 * Keep/Ignore/Throw
-    - keep rows with variable length
-    - ignore rows with variable length
-    - throw errors at position of row with variable length
+	- keep rows with variable length
+	- ignore rows with variable length
+	- throw errors at position of row with variable length
 * Define new column names as header row
 * Write data to CSV
 
@@ -44,21 +44,21 @@ using std::string;
 // pprint::PrettyPrinter p;
 
 int main() {
-    csv::CSVReader reader("../data/equipment.csv");
+	csv::CSVReader reader("../data/equipment.csv");
 
-    auto cols = reader.get_col_names();
+	auto cols = reader.get_col_names();
 
-    // M-1
-    // p.print(cols);
+	// M-1
+	// p.print(cols);
 
-    // M-2
-    for (auto i = cols.begin(); i != cols.end(); ++i)
-    {
-        std::cout << *i << "\n";
-    }
+	// M-2
+	for (auto i = cols.begin(); i != cols.end(); ++i)
+	{
+		std::cout << *i << "\n";
+	}
 
 
-    return 0;
+	return 0;
 }
 ``` 
 
