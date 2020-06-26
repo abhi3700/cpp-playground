@@ -187,9 +187,17 @@ target_include_directories(app PUBLIC ${REDIS_PLUS_PLUS_HEADER})
 find_library(REDIS_PLUS_PLUS_LIB redis++)
 target_link_libraries(app ${REDIS_PLUS_PLUS_LIB})
 ```
+* When linking with shared libraries, and running your application, you might get the following error message:
+```console
+error while loading shared libraries: xxx: cannot open shared object file: No such file or directory.
+```
+That's because the linker cannot find the shared libraries. In order to solve the problem, you can add the path where you installed hiredis and redis-plus-plus libraries, to LD_LIBRARY_PATH environment variable. For example:
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+```
 
 ## Quickstart
-- Code:
+* Code:
 ```cpp
 #include <sw/redis++/redis++.h>
 #include <iostream>
@@ -214,12 +222,22 @@ int main() {
 	return 0;
 }
 ```
-- Output:
+* Output:
 ```console
 $ g++ -std=c++17 test.cpp -lredis++ -lhiredis -pthread
 $ ./a.out
 PONG
 ```
+* Observation
+	+ The original URI which is provided to us via Heroku database is
+```
+redis://h:pd4ecec34154bbca551fdeafb94421d0ec41147dab602a6a878e6509ae49f638a@ec2-54-209-85-193.compute-1.amazonaws.com:11989
+```
+	+ But, the URL to be parsed into the Redis() function is:
+```
+tcp://pd4ecec34154bbca551fdeafb94421d0ec41147dab602a6a878e6509ae49f638a@ec2-54-209-85-193.compute-1.amazonaws.com:11989
+```
+	+ Here, the username `h` is dropped & `redis` is replaced with `tcp`
 
 ## Coding
 
