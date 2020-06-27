@@ -1,5 +1,5 @@
 /*
-			Set & Get
+			Set & Get Single Pair at once using `set` & `get`
 			- The data structure is:
 			{
 				"name": "abhijit"
