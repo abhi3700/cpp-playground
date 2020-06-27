@@ -157,7 +157,7 @@ Install the project...
 
 ## Editor (Sublime Text 3)
 1. Use C++ packages as per [this guide](https://github.com/abhi3700/My_Learning-Cpp/blob/master/README.md#sublime-text-3-recommended-editor)
-1. Now, for proper linting, copy & paste the folder (i.e. `sw` from "/usr/local/include") into `mingw-64` directory (in C:\ drive): __"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\lib\gcc\x86_64-w64-mingw32\8.1.0\include\c++"__ 
+1. Now, for proper linting, copy & paste the folder (i.e. `sw` & `hiredis` from "/usr/local/include") into `mingw-64` directory (in C:\ drive): __"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\lib\gcc\x86_64-w64-mingw32\8.1.0\include\c++"__ 
 1. DONE!
 
 ## Compiler (GNU, CMake) [For Linux (Ubuntu)]
@@ -240,6 +240,9 @@ tcp://pd4ecec34154bbca551fdeafb94421d0ec41147dab602a6a878e6509ae49f638a@ec2-54-2
 	+ Here, the username `h` is dropped & `redis` is replaced with `tcp`
 
 ## Coding
+* [Quickstart](./quickstart.cpp)
+* [Set & Get](./setget.cpp)
+* [List](./list.cpp)
 
 ## References
 * Redis client written in C++ - https://github.com/sewenew/redis-plus-plus

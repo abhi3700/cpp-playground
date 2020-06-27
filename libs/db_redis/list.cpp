@@ -1,3 +1,18 @@
+/*
+			List
+			- The data structure is:
+			{
+				"emp_list": ["Abhijit Roy", "Anuvesh", "Vijay", "Girish", "Abhishek"]
+			}
+			- delete the key (if exists)
+			- put data from vector into redis_db key
+			- append redis_db key with a new initializer list data
+			- clear the vector
+			- output key's value (in list) into a vector
+			- print the vector's newly inserted data.
+
+*/
+
 #include <sw/redis++/redis++.h>
 #include <iostream>
 #include <vector>
@@ -15,13 +30,14 @@ int main() {
 
 		std::vector<string> v1{"Abhijit Roy", "Anuvesh", "Vijay", "Girish", "Abhishek"};
 
-		// long long Redis::del("emp_list");
+		r.del("emp_list");		// delete the key "emp_list" to clear old data (if any) in previous run.
+
+		r.rpush("emp_list", v1.begin(), v1.end());		// M-1: push from back, a 'v1' vector into a key - 'emp_list'
+		r.rpush("emp_list", {"Victor", "John", "Vincent", "Catherine"});		// M-2: push from back an initializer list into a key - 'emp_list'
 		
-		r.rpush("emp_list", v1.begin(), v1.end());		// push from back, a 'v1' vector into a key - 'emp_list'
-		r.rpush("emp_list", {"Abhijit Roy", "Anuvesh", "Vijay", "Girish", "Abhishek"});		// push from back an initializer list into a key - 'emp_list'
 		v1.clear();		// clear the vector 'v1'
 
-		r.lrange("emp_list", 0, -1, std::back_inserter(v1));		// put the 'emp_list' key data into that vector
+		r.lrange("emp_list", 0, -1, std::back_inserter(v1));		// put the 'emp_list' key entire data (0 to -1) into that vector
 
 		// print the newly inserted vector 'v1' after clearing
 		for (auto it = v1.begin(); it != v1.end(); ++it) {
