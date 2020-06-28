@@ -11,6 +11,7 @@
 			- output key's value (in list) into a vector
 			- print the vector's newly inserted data.
 
+			> NOTE: if M-1 & M-2 both run sequentially, then the respective keys' values will be replaced by latest one.
 */
 
 #include <sw/redis++/redis++.h>

@@ -7,7 +7,7 @@
 						"profession", "Doctor" 
 					}
 					- M-1: mset using vector of pairs
-					- M-2: mset usin map
+					- M-2: mset usin unordered_map
 					- Output the keys' values into a new vector<string>
 					- print the newly inserted vector values.
 */
@@ -32,7 +32,7 @@ int main() {
 	r.mset(v1.begin(), v1.end());
 
 	// M-2
-	std::map<string, string> m1 = {
+	std::unordered_map<string, string> m1 = {
 									{"name", "Catherine"}, 
 									{"empcode", "CL4325"}, 
 									{"profession", "Police"} 
