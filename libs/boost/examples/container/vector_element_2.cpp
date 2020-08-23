@@ -6,28 +6,6 @@
 using std::string;
 using namespace boost::assign;
 
-
-// template<typename T>
-// bool operator==(T a, T b) {
-// 	return a == b ? true : false; 
-// }
-
-// template <typename T1, typename T2>
-// void find(T1 v, T2 s) {
-// 	auto it = v.begin();
-// 	while(it != v.end()) {
-// 		// if (typeid())
-// 		if ((*it).first == s) {
-// 			std::cout << s << " is found at first val of position " << it - v.begin() << std::endl;
-// 		} else if ((*it).second == s) {
-// 			std::cout << s << " is found at first val of position " << it - v.begin() << std::endl;
-// 		} else {
-// 			std::cout << s << " is NOT found " << std::endl;
-// 		}
-// 	}
-
-// }
-
 int main() {
 	typedef std::pair<string, int> pair;
 	std::vector<pair> v1;
@@ -52,16 +30,29 @@ int main() {
 	std::cout << (*it).first << std::endl;
 	std::cout << (*it).second << std::endl;
 
+	std::cout << "===============================" << std::endl;
 
-	// search
-	// auto s = 102;
-	// find(v1, s);
+	// search by primary key
+	auto s_pri = "adi";
+	auto find_it_pri = std::find_if(v1.begin(), v1.end(), [&](auto& v){ return v.first == "victor"; });
 
-	// if(it != v1.end()) {
-	// 	std::cout << s << " is found at position " << it - v1.begin() << std::endl;
-	// } else {
-	// 	std::cout << s << " is NOT found." << std::endl;
-	// }
+	if(find_it_pri != v1.end()) {
+		std::cout << s_pri << " is found at position " << find_it_pri - v1.begin() << std::endl;
+		std::cout << "And the secondary key at this position is: " << find_it_pri->second << "\n";
+	} else {
+		std::cout << s_pri << " is NOT found." << std::endl;
+	}
+
+	// search by secondary key
+	auto s_sec = 1034;
+	auto find_it_sec = std::find_if(v1.begin(), v1.end(), [&](auto& v){ return v.second == 1034; });
+
+	if(find_it_sec != v1.end()) {
+		std::cout << s_sec << " is found at position " << find_it_sec - v1.begin() << std::endl;
+		std::cout << "And the primary key at this position is: " << find_it_sec->first << "\n";
+	} else {
+		std::cout << s_sec << " is NOT found." << std::endl;
+	}
 
 	std::cout << "===============================" << std::endl;
 	// display
