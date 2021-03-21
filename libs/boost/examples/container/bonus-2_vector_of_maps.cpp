@@ -34,13 +34,15 @@ int main() {
 
 	// ---------------------------------------------------------
 	// M-2
-	v1.emplace_back(map<string, string>{
+	// initialization
+	v1 = vector<map<string, string>>{map<string, string>{
 		make_pair("symbol_name", "EOS"),
 		make_pair("symbol_precision", "4"),
 		make_pair("contract", "eosio.token"),
 		make_pair("value", "90000")
-	});
+	}};
 
+	// emplacing
 	v1.emplace_back(map<string, string>{
 		make_pair("symbol_name", "FUTBOL"),
 		make_pair("symbol_precision", "4"),
@@ -69,9 +71,10 @@ int main() {
 
 	// =========================================================
 	// Display
-	std::cout << v1[0]["symbol_name"] << "\n";
-	std::cout << v1[0]["symbol_precision"] << "\n";
-	std::cout << v1[1]["symbol_name"] << "\n";
+	// NOTE: use `at` instead of `[""]` for getting the value
+	std::cout << v1[0].at("symbol_name") << "\n";
+	std::cout << v1[0].at("symbol_precision") << "\n";
+	std::cout << v1[1].at("symbol_name") << "\n";
 
 	return 0;
 }
