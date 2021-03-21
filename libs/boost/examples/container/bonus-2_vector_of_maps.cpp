@@ -12,7 +12,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <algorithm>
 
 
 using std::string;
