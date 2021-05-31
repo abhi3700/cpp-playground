@@ -1,7 +1,7 @@
 /*
 		convert string to uint64_t
 		- `stoi()` won't work here, as it returns upto a 32 bit integer.
-		- strtoull is also applied for uint128_t & further basically, the max of `unsigned long long`
+		- strtoull is applied for min. uint64_t to uint128_t & further. Basically, the max of `unsigned long long`
 		- Reference:
 			- https://stackoverflow.com/a/58063723/6774636 [Using C lib i.e. cstdlib]
 			- https://stackoverflow.com/a/42356960/6774636 [Using Boost lib]
@@ -17,9 +17,9 @@
 using std::string;
 
 inline uint64_t str_to_uint64t(const string& s) {
-	uint64_t num;
-	char* end;
-	num = strtoull(s.c_str(), &end, 10);
+	// char* end;
+	// uint64_t num = strtoull(s.c_str(), &end, 10);
+  uint64_t num = strtoull(s.c_str(), NULL, 10);        // RECOMMENDED
 	return num;
 }
 
