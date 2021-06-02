@@ -1,6 +1,7 @@
 /*
 		- 'append' is much faster than '+'
-		- preserve the decimal places using double type
+		- preserve the decimal places using double type. Why double, not float? - because
+									uint64_t is a 8 byte (64-bit) which fits well with double 8 bytes, not float (4 bytes)
 		- snip last 3 digits from string using `substr`
 
 */
