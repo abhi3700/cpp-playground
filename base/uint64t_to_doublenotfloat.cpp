@@ -12,7 +12,7 @@ using std::string;
 
 int main() {
 	uint64_t num = 4235435436;
-	double res = (double)num;
+	double res = (double)num/1000;
 	std::cout << res <<"\n";
 
 	return 0;
