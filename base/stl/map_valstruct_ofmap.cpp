@@ -30,8 +30,8 @@ typedef struct {
 inline void creatify_investor_map( map<uint64_t, investor_t>& m, uint64_t item_key, const investor_t& item_val, 
 									const string& item_val_fcrypto_symbol, uint64_t item_val_fcrypto_qty ) 
 {
-	// auto s_it = std::find_if(m.begin(), m.end(), [&](auto& ms) {return ms.first == item_key;});
-	auto s_it = m.find(item_key);
+	// auto s_it = std::find_if(m.begin(), m.end(), [&](auto& ms) {return ms.first == item_key;});		// M-1
+	auto s_it = m.find(item_key);				// M-2
 	if(s_it != m.end()) {		// key found in map
 		s_it->second.share += item_val.share;		// add the share
 
